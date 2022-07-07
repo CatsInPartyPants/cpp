@@ -19,7 +19,7 @@ int main()
     int myArray2[3][3];
     makingArr(myArray,3, userElement);
     showarr(myArray,3);
-    makingArr2(myArray2, 3, 1);
+    makingArr2(myArray2, 3, userElement);
     showarr(myArray2, 3);
     return 0;
 }
