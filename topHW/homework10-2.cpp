@@ -32,8 +32,8 @@ int main()
                                 {9,8,7,6,5,4,3,2,1,0}
                                 };
     
-    moveArray(arrayForConvert, 3, 'r');
-    moveArray(arrayForConvert, 3, 'l');
+    moveArray(arrayForConvert, 20, 'r');
+    moveArray(arrayForConvert, 111, 'l');
    //show array
    for(int i = 0; i<2; i++)
    {
