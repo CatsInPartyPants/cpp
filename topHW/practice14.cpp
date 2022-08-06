@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 
 using namespace std;
 
@@ -39,6 +40,28 @@ int primcalc(int* a, int *b, char* z)
     }
 }
 
+void sumArray(int* arr, int s)
+{
+    int summa = 0;
+    for(int i = 0; i<s; i++, arr++)
+    {
+        summa += *arr;
+    }
+    cout << summa;
+}
+
+void fillArr(int* a, int s)
+{
+    srand(time(NULL));
+    sleep(1);
+    for(int i = 0; i<s; i++)
+    {
+        *(a+i) = rand() % 10;
+        cout << *(a+i) << " ";
+    }
+    cout << endl;
+}
+
 int main()
 {
     /*
@@ -76,8 +99,65 @@ int main()
     int a = 5, b = 10;
     //change(&a, &b);
     //cout << a << " " << b << endl;
+    /*
     char z = '*';
     cout << primcalc(&a, &b, &z);
+    cout << endl;
+    int arr[5] = {1,2,3,4,5};
+    sumArray(arr, 5);
+    */
+   /*
+   int M,N;
+   cout << "Enter size of array M->";
+   cin >> M;
+   cout << "Enter size of array N->";
+   cin >> N;
+
+   int* A = new int[M];
+   fillArr(A, M);
+   int* B = new int[N];
+   fillArr(B, N);
+   int* C = new int[M+N];
+   for(int i = 0; i < M+N; i++)
+   {
+       if(i < M)
+       {
+           *(C+i) = *(A++);
+       }else if (i >= M)
+       {
+           *(C+i) = *(B++);
+       }
+       cout << *(C+i) << " ";
+   }
+   delete[] A;
+   delete[] B;
+   delete[] C;
+   cout << A;
+   */
+  int M, N;
+  cout << "M:";
+  cin >>M;
+  cout << "N:";
+  cin >> N;
+  int* A = new int[M];
+  fillArr(A, M);
+  int* B = new int[N];
+  fillArr(B, N);
+  int* C = new int[M+N];
+  for(int i = 0; i< M; i++)
+    {
+        for(int j = 0; j<N;j++)
+        {
+            if(*(A+i) == *(B+j))
+            {
+                *C = *(A+i);
+                cout << *C << " ";
+                C++; 
+            }
+        }
+    }
+
+
 }
 
 int& rf(int index) // возвращает ссылку на элемент массива
